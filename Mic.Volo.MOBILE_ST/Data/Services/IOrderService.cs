@@ -1,4 +1,5 @@
 ﻿using Mic.Volo.MOBILE_ST.Data.Models;
+using Mic.Volo.MOBILE_ST.Data.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
