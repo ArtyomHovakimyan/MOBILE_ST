@@ -99,7 +99,7 @@ namespace Mic.Volo.MOBILE_ST.Controllers
             return Redirect("/");
         }
 
-        public async Task<IActionResult> UnAuthorized()
+        public async Task<IActionResult> SignOut()
         {
             await Logout();
             return RedirectToAction("Login");
