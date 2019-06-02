@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Mic.Volo.MOBILE_ST.Data.Services;
 using Mic.Volo.MOBILE_ST.Data.Smod;
 using Mic.Volo.MOBILE_ST.Data.ViewModel;
@@ -16,6 +17,7 @@ namespace Mic.Volo.MOBILE_ST.Controllers
     {
         private readonly IOrderService _orderService;
         private readonly IMobSerice _mobSerice;
+        private readonly IMapper _mapper;
         private readonly IUWork _uWork;
         private readonly ICompanyService _companyService;
 
