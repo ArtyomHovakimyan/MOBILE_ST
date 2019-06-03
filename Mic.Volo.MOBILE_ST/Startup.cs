@@ -32,6 +32,15 @@ namespace Mic.Volo.MOBILE_ST
         {
             services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDefaultIdentity<IdentityUser>()
+               .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //services.AddIdentity<User, IdentityRole>()
+            //.AddEntityFrameworkStores<ApplicationDbContext>()
+            //.AddDefaultTokenProviders();
+
+
             services.AddSession();
 
             services.ConfigureApplicationCookie(options =>
@@ -42,9 +51,26 @@ namespace Mic.Volo.MOBILE_ST
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        //This method gets called by the runtime.Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context)
         {
+            //var user = userManager.FindByNameAsync("Artyom").Result;
+            //if(user!=null)
+            //{
+            //    var result = userManager.CreateAsync(user, "Artyom.1234").Result;
+            //    if(result.Succeeded)
+            //    {
+            //        var roleResult = roleManager.CreateAsync(new IdentityRole { Name = "Admin" }).Result;
+            //        if(roleResult.Succeeded)
+            //        {
+            //            userManager.AddToRoleAsync(user, "Admin");
+            //        }
+            //    }
+            //}
+
+
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -61,7 +87,7 @@ namespace Mic.Volo.MOBILE_ST
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            //SeedData.Initialize(context);
+            SeedData.Initialize(context);
 
             app.UseAuthentication();
 

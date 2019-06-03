@@ -126,7 +126,7 @@ namespace Mic.Volo.MOBILE_ST.Controllers
             return View(phone);
         }
 
-        [Authorize(Roles ="Admin")]
+        //[Authorize(Roles ="Admin")]
         // GET: Phones/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -147,7 +147,7 @@ namespace Mic.Volo.MOBILE_ST.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         // POST: Phones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
