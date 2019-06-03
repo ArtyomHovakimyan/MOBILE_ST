@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Mic.Volo.MOBILE_ST.Data.AppDbCont;
 using Mic.Volo.MOBILE_ST.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Mic.Volo.MOBILE_ST.Controllers
 {
@@ -125,6 +126,7 @@ namespace Mic.Volo.MOBILE_ST.Controllers
             return View(phone);
         }
 
+        [Authorize(Roles ="Admin")]
         // GET: Phones/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -144,6 +146,8 @@ namespace Mic.Volo.MOBILE_ST.Controllers
             return View(phone);
         }
 
+
+        [Authorize(Roles = "Admin")]
         // POST: Phones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -159,5 +163,14 @@ namespace Mic.Volo.MOBILE_ST.Controllers
         {
             return _context.Phones.Any(e => e.Id == id);
         }
+
+
+
+
+
+        //public ActionResult Buy()
+        //{
+        //    return View("Buy");
+        //}
     }
 }

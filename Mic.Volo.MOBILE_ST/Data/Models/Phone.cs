@@ -23,7 +23,6 @@ namespace Mic.Volo.MOBILE_ST.Data.Models
         public string LongDescription { get; set; }
 
         [Required]
-        [StringLength(255)]
         public decimal Price { get; set; }
 
         [Required]
@@ -31,7 +30,6 @@ namespace Mic.Volo.MOBILE_ST.Data.Models
         public string ImageUrl { get; set; }
 
         [Required]
-        [StringLength(255)]
         public bool IsPhoneOfTheWeek { get; set; }
 
         public int CompanyId { get; set; }

@@ -32,49 +32,13 @@ namespace Mic.Volo.MOBILE_ST
         {
             services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<MobService, MobService>();
-            services.AddScoped<ICompanyService, CompanyService>();
-            services.AddScoped<IOrderService, OrderService>();
-            // services.AddScoped<IUWork, UWork>();
-
-            // services.AddScoped<IShoppingCartService>(sp => ShoppingCartService.GetCart(sp));
-
-            //services.AddDbContext<ApplicationDbContext>(ctx =>
-            //{
-            //    ctx.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            //});
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
-        //    services.AddDefaultIdentity<User>()
-        //.AddEntityFrameworkStores<ApplicationDbContext>()
-        //.AddDefaultUI();
-
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-            
-
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
-            {
-                options.User.RequireUniqueEmail = true;
-                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                options.Password.RequireUppercase = false;
-            })
-            .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            //services.AddSession();
+            services.AddSession();
 
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Account/SignOut";
             });
-
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -92,8 +56,12 @@ namespace Mic.Volo.MOBILE_ST
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSession();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            //SeedData.Initialize(context);
 
             app.UseAuthentication();
 
@@ -104,5 +72,7 @@ namespace Mic.Volo.MOBILE_ST
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
     }
 }
+
