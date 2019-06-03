@@ -14,7 +14,7 @@ namespace Mic.Volo.MOBILE_ST.Data.Services
         Task<int> AddToCartAsync(Phone phone, int qty = 1);
         Task ClearCartAsync();
         Task<IEnumerable<ShoppingCartItem>> GetShoppingCartItemsAsync();
-        Task<int> RemoveFromCartAsync(Phone cake);
+        Task<int> RemoveFromCartAsync(Phone phone);
         Task<(int ItemCount, decimal TotalAmmount)> GetCartCountAndTotalAmmountAsync();
     }
 }

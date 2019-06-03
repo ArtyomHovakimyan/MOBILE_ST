@@ -1,7 +1,48 @@
-﻿
-@{
-    ViewData["Title"] = "AddOrEditPhone";
-}
+﻿@model Mic.Volo.MOBILE_ST.Data.ViewModel.PhoneCreateUpdateViewModel
 
-<h2>AddOrEditPhone</h2>
-
+<div class="row">
+	<div class="col-md-6">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly"></div>
+			<div class="form-group">
+				<label asp-for="PhoneSMod.Name"></label>
+				<input asp-for="PhoneSMod.Name" class="form-control"/>
+				<span asp-validation-for="PhoneSMod.Name"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PhoneSMod.CompanyId"></label>
+				<select class="custom-select" asp-for="PhoneSMod.CompanyId">
+					<option value=""></option>
+					@foreach (var company in Model.Companies)
+					{
+						<option value="@company.Id">@company.Name</option>
+					}
+				</select>
+				<span asp-validation-for="PhoneSMod.CompanyId"></span>
+			</div>
+			<div class="form-group">
+				<label  asp-for="PhoneSMod.ShortDescription"></label>
+				<input asp-for="PhoneSMod.ShortDescription" class="form-control"/>
+				<span asp-validation-for="PhoneSMod.ShortDescription"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PhoneSMod.LongDescription"></label>
+				<textarea asp-for="PhoneSMod.LongDescription" class="form-control"></textarea>
+				<span asp-validation-for="PhoneSMod.LongDescription"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PhoneSMod.ImageUrl"></label>
+				<input asp-for="PhoneSMod.ImageUrl" class="form-control"/>
+				<span asp-validation-for="PhoneSMod.ImageUrl"></span>
+			</div>
+			<div class="form-check form-group">
+				<input type="checkbox" class="form-check-input" asp-for="PhoneSMod.IsPhoneOfTheWeek"/>
+				<label class="form-check-label" asp-for="PhoneSMod.IsPhoneOfTheWeek"></label>
+				<span asp-validation-for="PhoneSMod.IsPhoneOfTheWeek"></span>
+			</div>
+			<div class="form-group">
+				<button class="btn" buy-now-btn>Save</button>
+			</div>
+		</form>
+	</div>
+</div>

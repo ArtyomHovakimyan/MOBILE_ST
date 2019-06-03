@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mic.Volo.MOBILE_ST.Data;
 using Mic.Volo.MOBILE_ST.Data.AppDbCont;
+using Mic.Volo.MOBILE_ST.Data.Services;
+using Mic.Volo.MOBILE_ST.Data.ViewModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,12 +32,22 @@ namespace Mic.Volo.MOBILE_ST
         {
             services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<MobService, MobService>();
+            services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IOrderService, OrderService>();
+            // services.AddScoped<IUWork, UWork>();
 
+            // services.AddScoped<IShoppingCartService>(sp => ShoppingCartService.GetCart(sp));
 
             //services.AddDbContext<ApplicationDbContext>(ctx =>
             //{
             //    ctx.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             //});
+            //services.AddIdentity<IdentityUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+        //    services.AddDefaultIdentity<User>()
+        //.AddEntityFrameworkStores<ApplicationDbContext>()
+        //.AddDefaultUI();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -42,6 +55,8 @@ namespace Mic.Volo.MOBILE_ST
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {

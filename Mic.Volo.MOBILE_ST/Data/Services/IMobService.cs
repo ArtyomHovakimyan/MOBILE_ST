@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mic.Volo.MOBILE_ST.Data.Services
 {
-    public interface IMobSerice
+    public interface IMobService
     {
         Task<IEnumerable<Phone>> GetPhones(string company = null);
         Task<IEnumerable<Phone>> GetPhonesOfTheWeek();

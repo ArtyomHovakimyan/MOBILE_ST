@@ -1,0 +1,18 @@
+﻿@model Mic.Volo.MOBILE_ST.Data.ViewModel.PhoneListViewModel
+
+@if(Model.Phones?.Count()>0)
+{
+	<h1>@Model.CurrentCompany</h1>
+	<div class="row">
+		@foreach (var phone in Model.Phones)
+		{
+			@await Html.PartialAsync("PhoneView", phone);
+		}
+	</div>
+}
+else
+{
+	<h1>Phones</h1>
+	<p>Sorry! Phones are not fount in '@Model.CurrentCompany' company.</p>
+}
+

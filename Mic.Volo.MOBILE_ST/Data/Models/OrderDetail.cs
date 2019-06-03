@@ -12,7 +12,7 @@ namespace Mic.Volo.MOBILE_ST.Data.Models
 
         [Required]
         [MaxLength(255)]
-        public string CakeName { get; set; }
+        public string PhoneName { get; set; }
         public int Qty { get; set; }
         public decimal Price { get; set; }
 

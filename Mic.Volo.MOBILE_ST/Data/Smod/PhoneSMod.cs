@@ -33,7 +33,7 @@ namespace Mic.Volo.MOBILE_ST.Data.Smod
         public string ImageUrl { get; set; }
 
         [Display(Name = "Is Phone Of the Week? ")]
-        public bool IsCakeOfTheWeek { get; set; }
+        public bool IsPhoneOfTheWeek { get; set; }
 
         [Display(Name = "Company")]
         public int CompanyId { get; set; }

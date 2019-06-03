@@ -12,19 +12,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mic.Volo.MOBILE_ST.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    //[Authorize(Roles ="Admin")]
+    [Authorize]
     [Route("/admin/managePhones")]
     public class AdminController : Controller
     {
         private readonly IOrderService _orderService;
-        private readonly IMobSerice _mobSerice;
+        private readonly IMobService _mobSerice;
         private readonly IMapper _mapper;
         private readonly IUWork _uWork;
         private readonly ICompanyService _companyService;
 
         public AdminController(
             IOrderService orderService,
-            IMobSerice mobSerice,
+            IMobService mobSerice,
             IMapper mapper,
             IUWork uWork,
             ICompanyService companyService)

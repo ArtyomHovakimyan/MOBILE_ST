@@ -12,7 +12,7 @@ namespace Mic.Volo.MOBILE_ST.Data.Models
 
         public int Qty { get; set; }
 
-        public int CakeId { get; set; }
+        public int PhoneId { get; set; }
 
         public Phone Phone { get; set; }
 

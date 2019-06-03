@@ -1,0 +1,20 @@
+﻿@model Mic.Volo.MOBILE_ST.Data.Models.Phone
+
+<div class="col-lg-4 col-md-6 col-sm-6">
+	<div class="card" style="" onclick="javascript:window.location.href='/phones/details/@Model.Id'">
+		<div class="card-body">
+			<h5 class="card-title visible-md-inline float-left">
+				@Model.Name
+			</h5>
+			<p class="card-text visible-md-inline">@Model.Price.ToString("c")</p>
+			<p class="card-text"><i>@Model.ShortDescription</i> </p>
+			<form asp-action="AddToShoppingCart"
+				  asp-controller="ShoppingCart"
+				  asp-route-cakeId="@Model.Id"
+				  method="post">
+				<button class="btn btn-primary buy-now-btn float-right">Buy Now</button>
+			</form>
+		</div>
+	</div>
+
+</div>

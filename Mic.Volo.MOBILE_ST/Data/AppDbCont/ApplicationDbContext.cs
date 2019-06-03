@@ -17,11 +17,12 @@ namespace Mic.Volo.MOBILE_ST.Data.AppDbCont
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
+        
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-
         }
     }
 }
